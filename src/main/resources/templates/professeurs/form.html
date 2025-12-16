@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:Email="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title> Formulaire professeur</title>
@@ -8,7 +8,7 @@
 
 <body>
 <header>
-    <div><h5> Formulaire professeur</h5></div>
+    <div><h2> Formulaire professeur</h2></div>
 
     <div><h3 th:if="${professeur.id == null}">Ajouter un nouveau Professeur</h3>
         <h3 th:if="${professeur.id != null}">Modifier un Professeur</h3>
@@ -16,7 +16,7 @@
 </header>
 
 <form th:object="${professeur}"
-      th:action="${professeur.id == null ? '/ajouter-professeur' : '/' + professeur.id + '/modifier'}"
+      th:action="${professeur.id == null ? '/professeur/ajouter-professeur' : '/professeur/' + professeur.id + '/modifier'}"
       method="post">
 
     <div><label>Nom: </label>
@@ -25,10 +25,22 @@
         <label>Prenom: </label>
         <input th:field="*{prenom}" required/>
         <br>
-        <label Email:></label>
+        <label> Email: </label>
         <input th:field="*{email}" required/>
     </div>
 
+    <div>
+        <a th:href="@{/professeur/{id}/valider(id=${professeur.id})}">
+            <button class="button">Valider nouveau Professeur</button>
+        </a>
+    </div>
 </form>
+<div>
+    <a href="/professeur/">
+        <button class="button">Retour Acceuil Professeur</button>
+    </a>
+</div>
+
+
 </body>
 </html>

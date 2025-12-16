@@ -2,9 +2,47 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>INDEX</title>
+    <title>>Gestion des Classes</title>
 </head>
 <body>
+<header>
+    <div><h2>Gestion des Classes</h2></div>
 
+    <div>
+        <a href="/classe/form">
+            <button class="button">Ajouter une classe</button>
+        </a>
+    </div>
+
+    <div>
+        <a th:href="@{/professeur/}">
+            <button>Voir tous les professeurs</button>
+        </a>
+    </div>
+</header>
+    <main>
+        <table>
+            <tr>
+                <th>Nom de classe</th>
+                <th>Niveau</th>
+                <th>Matiere</th>
+                <th>Professeur</th>
+                <th>Nombres d'eleves</th>
+                <th>Actions</th>
+            </tr>
+
+            <tr th:each="classe : ${listClasses}">
+                <td><span th:text="${classe.nom}"></span></td>
+                <td><span th:text="${classe.niveau}"></span></td>
+                <td><span th:text="${classe.matiere}"></span></td>
+                <td><span th:text="${classe.professeur.nom + ' ' + classe.professeur.prenom}"></span></td>
+                <td><span th:text="${classe.eleves}"></span></td>
+                <td><a th:href="@{/classe/{id}/modifier(id=${classe.id})}">
+                    <button>Modifier</button></a>
+                <a th:href="@{/classe/{id}/supprimer(id=${classe.id})}">
+                    <button>Supprimer</button></a></td>
+            </tr>
+        </table>
+    </main>
 </body>
 </html>

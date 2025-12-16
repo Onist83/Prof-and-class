@@ -7,20 +7,22 @@
 </head>
 <body>
 <header>
-    <div><h5>Gestion des Professeurs</h5></div>
+    <div><h2>Gestion des Professeurs</h2></div>
 
     <div>
-        <a href="/form">
+        <a href="/professeur/form">
             <button class="button">Ajouter un professeur</button>
         </a>
     </div>
+    <br>
 
     <div>
-        <a th:href="@{/classe}">
+        <a th:href="@{/classe/}">
             <button>Voir toutes les classes</button>
         </a>
     </div>
 </header>
+<br>
 
 <main>
     <table>
@@ -34,8 +36,16 @@
         <tr th:each="professeur : ${listProfesseurs}">
             <td><span th:text="${professeur.nom + ' ' + professeur.prenom}"></span></td>
             <td><span th:text="${professeur.email}"></span></td>
-<!--            <td><span th:text="${professeur.?}"></span></td>-->
-            <td><a th:href="@{/professeur/{id}/modifier(id=${professeur.id})}"><button>Modifier</button></a> <a th:href="@{/professeur/{id}/supprimer(id=${professeur.id})}"><button>Supprimer</button></a></td>
+            <!--            <td><span th:text="${professeur.?}"></span></td>-->
+            <td><a th:href="@{/professeur/{id}/modifier(id=${professeur.id})}">
+                <button>Modifier</button>
+            </a> <a th:href="@{/professeur/{id}/supprimer(id=${professeur.id})}">
+                <button>Supprimer</button>
+            </a>
+                </a> <a th:href="@{/professeur/{id}/detail(id=${professeur.id})}">
+                    <button>Detail</button>
+                </a>
+            </td>
         </tr>
     </table>
 </main>

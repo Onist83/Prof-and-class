@@ -2,9 +2,47 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>DETAIL</title>
+    <title>Détail d'un professeur</title>
 </head>
 <body>
+<header>
+<div><h2>Classes enseignées</h2></div>
+    <br>
+    <div>
+        <h5>Nom: <span th:text="${professeur.nom}"></span></h5>
+        <h5>Prenom: <span th:text="${professeur.prenom}"></span></h5>
+        <h5>Mail: <span th:text="${professeur.email}"></span></h5>
+    </div>
+</header>
+
+<main>
+    <table>
+        <tr>
+            <th>Nom de classe</th>
+            <th>Niveau</th>
+            <th>Matiere</th>
+            <th>Nombres d'eleves</th>
+        </tr>
+
+    <tr th:each="classe : ${listClasses}">
+        <td><span th:text="${professeur.classe.nom}"></span></td>
+        <td><span th:text="${professeur.classe.niveau}"></span></td>
+        <td><span th:text="${professeur.classe.matiere}"></span></td>
+        <td><span th:text="${professeur.classe.eleves}"></span></td>
+    </tr>
+    </table>
+    <br>
+
+    <div><a th:href="@{/professeur/{id}/modifier(id=${professeur.id})}">
+        <button>Modifier</button></a>
+        <a th:href="@{/professeur/{id}/supprimer(id=${professeur.id})}">
+            <button>Supprimer</button></a>
+        <a href="/professeur/">
+            <button class="button">Retour Acceuil Professeur</button>
+        </a>
+    </div>
+
+</main>
 
 </body>
 </html>

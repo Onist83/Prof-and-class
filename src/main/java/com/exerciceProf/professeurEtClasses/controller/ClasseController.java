@@ -18,22 +18,22 @@ public class ClasseController {
         this.classeService = classeService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String getClasseIndex(Model model) {
-        model.addAttribute("listClassess", classeService.getListclasses());
-        return "classes/index";
+        model.addAttribute("listClasses", classeService.getListclasses());
+        return "/classes/index";
     }
 
     @GetMapping("/form")
     public String getnouvelleClasse(Model model) {
         model.addAttribute("classe", new Classe());
-        return "form";
+        return "/classes/form";
     }
 
     @PostMapping
     public String ajouterClasse(@ModelAttribute Classe c, Model model) {
         classeService.ajouterClasse(c);
-        return "redirect";
+        return "redirect:/classe/";
     }
 
     @GetMapping("/{id}")
@@ -51,13 +51,13 @@ public class ClasseController {
     @GetMapping("/{id}/modifier")
     public String getModifierClasse(Model model, @PathVariable Long id) throws IllegalAccessException {
         model.addAttribute("classe", classeService.getClasseById(id));
-        return "form";
+        return "classes/form";
     }
 
     @PostMapping("/{id}/modifier")
     public String modifierClasse(@ModelAttribute Classe c, Model model) {
         classeService.modifierClasse(c);
-        return "redirect:/";
+        return "redirect:/classe/";
     }
 
     @GetMapping("/{id}/supprimer")
@@ -65,6 +65,6 @@ public class ClasseController {
             @PathVariable Long id
     ) {
         classeService.supprimerClasse(id);
-        return "redirect:/";
+        return "redirect:/classe/";
     }
 }

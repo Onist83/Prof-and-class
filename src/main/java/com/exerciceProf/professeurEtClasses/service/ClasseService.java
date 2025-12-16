@@ -3,6 +3,7 @@ package com.exerciceProf.professeurEtClasses.service;
 import com.exerciceProf.professeurEtClasses.model.Classe;
 import com.exerciceProf.professeurEtClasses.model.Professeur;
 import com.exerciceProf.professeurEtClasses.repository.ClasseRepository;
+import com.exerciceProf.professeurEtClasses.repository.ProfesseurRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,6 +13,10 @@ import java.util.List;
 public class ClasseService {
     private ClasseRepository classeRepository;
     private List<Classe> listClasses = new ArrayList<>();
+
+    public ClasseService(ClasseRepository classeRepository) {
+        this.classeRepository = classeRepository;
+    }
 
     public Classe getClasseById(Long id) throws IllegalAccessException {
         return classeRepository.findById(id)

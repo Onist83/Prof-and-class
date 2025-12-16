@@ -31,7 +31,7 @@ public class ProfesseurController {
     @PostMapping("ajouter-professeur")
     public String ajouterProfesseur(@ModelAttribute Professeur p, Model model) {
         professeurService.ajouterProfesseur(p);
-        return "redirect/professeur/";
+        return "redirect:/professeur/";
     }
 
     @GetMapping("/{id}")
@@ -52,7 +52,7 @@ public class ProfesseurController {
         return "/professeurs/form";
     }
 
-    @PostMapping
+    @PostMapping("/{id}/modifier")
     public String modifierProfesseur(@ModelAttribute Professeur p, Model model) {
         professeurService.modifierProfesseur(p);
         return "redirect:/professeur/";
@@ -64,5 +64,11 @@ public class ProfesseurController {
     ) {
         professeurService.supprimerProfesseur(id);
         return "redirect:/professeur/";
+    }
+
+    @GetMapping("/{id}/detail")
+    public String getDetailProfesseur(Model model, @PathVariable Long id) throws IllegalAccessException {
+        model.addAttribute("professeur", professeurService.getProfesseurById(id));
+        return "/professeurs/detail";
     }
 }
