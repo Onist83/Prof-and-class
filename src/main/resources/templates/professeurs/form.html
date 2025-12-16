@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:Email="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title> Formulaire professeur</title>
+    <link rel="stylesheet" th:href="@{/css/professeur/form.css}">
+</head>
+
+<body>
+<header>
+    <div><h5> Formulaire professeur</h5></div>
+
+    <div><h3 th:if="${professeur.id == null}">Ajouter un nouveau Professeur</h3>
+        <h3 th:if="${professeur.id != null}">Modifier un Professeur</h3>
+    </div>
+</header>
+
+<form th:object="${professeur}"
+      th:action="${professeur.id == null ? '/ajouter-professeur' : '/' + professeur.id + '/modifier'}"
+      method="post">
+
+    <div><label>Nom: </label>
+        <input th:field="*{nom}" required/>
+        <br>
+        <label>Prenom: </label>
+        <input th:field="*{prenom}" required/>
+        <br>
+        <label Email:></label>
+        <input th:field="*{email}" required/>
+    </div>
+
+</form>
+</body>
+</html>

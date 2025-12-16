@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion des Professeurs</title>
+    <link rel="stylesheet" th:href="@{/css/professeur/index.css}">
+</head>
+<body>
+<header>
+    <div><h5>Gestion des Professeurs</h5></div>
+
+    <div>
+        <a href="/form">
+            <button class="button">Ajouter un professeur</button>
+        </a>
+    </div>
+
+    <div>
+        <a th:href="@{/classe}">
+            <button>Voir toutes les classes</button>
+        </a>
+    </div>
+</header>
+
+<main>
+    <table>
+        <tr>
+            <th>Nom Prenom</th>
+            <th>Email</th>
+            <th>Nombres de classes</th>
+            <th>Actions</th>
+        </tr>
+
+        <tr th:each="professeur : ${listProfesseurs}">
+            <td><span th:text="${professeur.nom + ' ' + professeur.prenom}"></span></td>
+            <td><span th:text="${professeur.email}"></span></td>
+<!--            <td><span th:text="${professeur.?}"></span></td>-->
+            <td><a th:href="@{/professeur/{id}/modifier(id=${professeur.id})}"><button>Modifier</button></a> <a th:href="@{/professeur/{id}/supprimer(id=${professeur.id})}"><button>Supprimer</button></a></td>
+        </tr>
+    </table>
+</main>
+</body>
+</html>
