@@ -24,11 +24,11 @@
             <th>Nombres d'eleves</th>
         </tr>
 
-    <tr th:each="classe : ${listClasses}">
-        <td><span th:text="${professeur.classe.nom}"></span></td>
-        <td><span th:text="${professeur.classe.niveau}"></span></td>
-        <td><span th:text="${professeur.classe.matiere}"></span></td>
-        <td><span th:text="${professeur.classe.eleves}"></span></td>
+    <tr th:each="classe : ${professeur.classes}">
+        <td><span th:text="${classe.nom}"></span></td>
+        <td><span th:text="${classe.niveau}"></span></td>
+        <td><span th:text="${classe.matiere}"></span></td>
+        <td><span th:text="${classe.eleves}"></span></td>
     </tr>
     </table>
     <br>
