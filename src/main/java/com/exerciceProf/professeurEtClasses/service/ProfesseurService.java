@@ -1,5 +1,6 @@
 package com.exerciceProf.professeurEtClasses.service;
 
+import com.exerciceProf.professeurEtClasses.model.Classe;
 import com.exerciceProf.professeurEtClasses.model.Professeur;
 import com.exerciceProf.professeurEtClasses.repository.ProfesseurRepository;
 import org.springframework.stereotype.Service;
@@ -52,4 +53,29 @@ public class ProfesseurService {
     public void supprimerProfesseur(Long id) {
         professeurRepository.deleteById(id);
     }
+
+    //    Calcul nb de classes
+    public int calculClasse(Long id) throws IllegalAccessException {
+        int countClasse = 0;
+    Professeur prof = this.getProfesseurById(id);
+    List<Classe> classes = prof.getClasses();
+    for (Classe classe: classes){
+        countClasse++;
+    }
+    return countClasse;
+    }
+
+    //  Calcul nb d'eleves
+    public int calculEleves(Long id) throws IllegalAccessException {
+        int countEleve = 0;
+        Professeur prof = this.getProfesseurById(id);
+        List<Classe> classes = prof.getClasses();
+        for (Classe classe: classes){
+//           Je rentre dans la liste de Classe, pour regarder combien y'a d'eleves et les ajouter au fur et à mesure
+            countEleve += classe.getEleves();
+        }
+        return countEleve ;
+    }
 }
+
+

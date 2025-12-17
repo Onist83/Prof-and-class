@@ -13,7 +13,7 @@ header {
 }
 
 main {
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .button {
@@ -26,25 +26,32 @@ main {
     color : #1e3d59;
 }
 
-.alignement {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-family: "Lucida Console", monospace;
+.nom {
+    font-family: cursive;
     font-size: 25px;
 }
 
-.valider {
-    margin-top: 5%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+table {
+    width: 100%;
 }
 
-.retour {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+th, td {
+    text-align: center;
 }
+
+.tableau {
+    font-family: cursive;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+

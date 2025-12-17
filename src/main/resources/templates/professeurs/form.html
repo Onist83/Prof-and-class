@@ -8,18 +8,20 @@
 
 <body>
 <header>
-    <div><h2> Formulaire professeur</h2></div>
+    <div><h2> Formulaire professeur</h2>
 
-    <div><h3 th:if="${professeur.id == null}">Ajouter un nouveau Professeur</h3>
+    <h3 th:if="${professeur.id == null}">Ajouter un nouveau Professeur</h3>
         <h3 th:if="${professeur.id != null}">Modifier un Professeur</h3>
     </div>
 </header>
+
+<main>
 
 <form th:object="${professeur}"
       th:action="${professeur.id == null ? '/professeur/ajouter-professeur' : '/professeur/' + professeur.id + '/modifier'}"
       method="post">
 
-    <div><label>Nom: </label>
+    <div class="alignement"><label>Nom: </label>
         <input th:field="*{nom}" required/>
         <br>
         <label>Prenom: </label>
@@ -28,19 +30,22 @@
         <label> Email: </label>
         <input th:field="*{email}" required/>
     </div>
+    <br>
 
-    <div>
+    <div class="valider">
         <a th:href="@{/professeur/{id}/valider(id=${professeur.id})}">
             <button class="button">Valider nouveau Professeur</button>
         </a>
     </div>
 </form>
-<div>
+<br>
+
+<div class="retour">
     <a href="/professeur/">
         <button class="button">Retour Acceuil Professeur</button>
     </a>
 </div>
 
-
+</main>
 </body>
 </html>

@@ -4,6 +4,7 @@ import com.exerciceProf.professeurEtClasses.model.Classe;
 import com.exerciceProf.professeurEtClasses.model.Professeur;
 import com.exerciceProf.professeurEtClasses.service.ClasseService;
 import com.exerciceProf.professeurEtClasses.service.ProfesseurService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.*;
 public class ClasseController {
 
     private ClasseService classeService;
+
+    @Autowired
+    private ProfesseurService professeurService;
 
     public ClasseController(ClasseService classeService) {
         this.classeService = classeService;
@@ -27,6 +31,7 @@ public class ClasseController {
     @GetMapping("/form")
     public String getnouvelleClasse(Model model) {
         model.addAttribute("classe", new Classe());
+        model.addAttribute("listProfesseurs", professeurService.getListprofesseurs());
         return "/classes/form";
     }
 
@@ -65,6 +70,18 @@ public class ClasseController {
             @PathVariable Long id
     ) {
         classeService.supprimerClasse(id);
+        return "redirect:/classe/";
+    }
+
+    @GetMapping("/{id}/detail")
+    public String getDetailClasse(Model model, @PathVariable Long id) throws IllegalAccessException {
+        model.addAttribute("classe", classeService.getClasseById(id));
+        return "/classes/detail";
+    }
+
+    @PostMapping("/form")
+    public String nouvelle(@ModelAttribute Classe classe){
+        classeService.nouvelle(classe);
         return "redirect:/classe/";
     }
 }

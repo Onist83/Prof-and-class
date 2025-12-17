@@ -51,4 +51,8 @@ public class ClasseService {
     public void supprimerClasse(Long id) {
         classeRepository.deleteById(id);
     }
+
+    public void nouvelle(Classe classe) {
+        classeRepository.save(classe);
+    }
 }
