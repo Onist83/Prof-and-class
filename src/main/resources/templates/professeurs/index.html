@@ -36,12 +36,13 @@
         <tr th:each="professeur : ${listProfesseurs}">
             <td><span th:text="${professeur.nom + ' ' + professeur.prenom}"></span></td>
             <td><span th:text="${professeur.email}"></span></td>
-           <td><span th:text="${professeur.classes.size()}"></span></td>
+            <td><span th:text="${professeur.classes.size()}"></span></td>
             <td><a th:href="@{/professeur/{id}/modifier(id=${professeur.id})}">
                 <button class="button">Modifier</button>
-            </a> <a th:href="@{/professeur/{id}/supprimer(id=${professeur.id})}">
-                <button class="button">Supprimer</button>
             </a>
+                <a th:href="@{/professeur/{id}/supprimer(id=${professeur.id})}">
+                    <button class="button">Supprimer</button>
+                </a>
                 <a th:href="@{/professeur/{id}/detail(id=${professeur.id})}">
                     <button class="button">Detail</button>
                 </a>

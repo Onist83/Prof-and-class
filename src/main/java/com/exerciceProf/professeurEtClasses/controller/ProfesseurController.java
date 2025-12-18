@@ -69,6 +69,7 @@ public class ProfesseurController {
     @GetMapping("/{id}/detail")
     public String getDetailProfesseur(Model model, @PathVariable Long id) throws IllegalAccessException {
         model.addAttribute("professeur", professeurService.getProfesseurById(id));
+        model.addAttribute("totalEleves", professeurService.calculEleves(id));
         return "/professeurs/detail";
     }
 }

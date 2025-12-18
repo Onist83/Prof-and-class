@@ -37,6 +37,13 @@
     </table>
     <br>
 
+    <div>
+        <h3>Statistiques</h3>
+        <span> Nombres de classes: <span th:text="${professeur.classes.size()}"></span></span>
+        <span> Nombres total d'eleves: <span th:text="${totalEleves}"></span></span>
+    </div>
+    <br>
+
     <div class="buttons"><a th:href="@{/professeur/{id}/modifier(id=${professeur.id})}">
         <button class="button">Modifier</button></a>
         <br>
