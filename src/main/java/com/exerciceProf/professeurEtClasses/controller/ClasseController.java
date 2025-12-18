@@ -56,6 +56,7 @@ public class ClasseController {
     @GetMapping("/{id}/modifier")
     public String getModifierClasse(Model model, @PathVariable Long id) throws IllegalAccessException {
         model.addAttribute("classe", classeService.getClasseById(id));
+        model.addAttribute("listProfesseurs", professeurService.getListprofesseurs());
         return "classes/form";
     }
 

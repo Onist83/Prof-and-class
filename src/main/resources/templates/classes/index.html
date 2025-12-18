@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>>Gestion des Classes</title>
+    <link rel="stylesheet" th:href="@{/css/classe/index.css}">
 </head>
 <body>
 <header>
@@ -17,7 +18,7 @@
 
     <div>
         <a th:href="@{/professeur/}">
-            <button>Voir tous les professeurs</button>
+            <button class="button">Voir tous les professeurs</button>
         </a>
     </div>
 
@@ -43,13 +44,13 @@
                     </a></td>
             <td><span th:text="${classe.eleves}"></span></td>
             <td><a th:href="@{/classe/{id}/modifier(id=${classe.id})}">
-                <button>Modifier</button>
+                <button class="button">Modifier</button>
             </a>
                 <a th:href="@{/classe/{id}/supprimer(id=${classe.id})}">
-                    <button>Supprimer</button>
+                    <button class="button">Supprimer</button>
                 </a>
                 <a th:href="@{/classe/{id}/detail(id=${classe.id})}">
-                    <button>Detail</button>
+                    <button class="button">Detail</button>
                 </a></td>
         </tr>
     </table>

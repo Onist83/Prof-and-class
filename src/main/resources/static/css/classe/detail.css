@@ -16,21 +16,6 @@ main {
     margin-top: 5%;
 }
 
-.button {
-    padding: 6px 18px;
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    background-color: #ffc13b;
-    color : #1e3d59;
-}
-
-.nom {
-    font-family: cursive;
-    font-size: 25px;
-}
-
 table {
     width: 100%;
 }
@@ -49,11 +34,16 @@ display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 10%;
 }
 
-.stat {
-    font-family: cursive;
-    font-size: 20px;
 
+.button {
+    padding: 6px 18px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    background-color: #ffc13b;
+    color : #1e3d59;
 }
-
