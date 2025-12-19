@@ -21,6 +21,13 @@
             <button class="button">Voir tous les professeurs</button>
         </a>
     </div>
+    <br>
+
+    <div>
+        <a href="/acceuil/">
+            <button class="button">Acceuil</button>
+        </a>
+    </div>
 
 </header>
 <br>
@@ -43,9 +50,7 @@
             <td><a th:href="@{/professeur/{id}/detail(id=${classe.professeur.id})}" th:text="${classe.professeur.nom + ' ' + classe.professeur.prenom}">
                     </a></td>
             <td><span th:text="${classe.eleves}"></span></td>
-            <td><a th:href="@{/classe/{id}/modifier(id=${classe.id})}">
-                <button class="button">Modifier</button>
-            </a>
+            <td><a th:href="@{/classe/{id}/modifier(id=${classe.id})}"><button class="button">Modifier</button></a>
                 <a th:href="@{/classe/{id}/supprimer(id=${classe.id})}">
                     <button class="button">Supprimer</button>
                 </a>

@@ -35,7 +35,7 @@ public class ClasseController {
         return "/classes/form";
     }
 
-    @PostMapping
+    @PostMapping("/nouveau/")
     public String ajouterClasse(@ModelAttribute Classe c, Model model) {
         classeService.ajouterClasse(c);
         return "redirect:/classe/";

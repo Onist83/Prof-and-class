@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceuil</title>
+    <link rel="stylesheet" th:href="@{/css/acceuil/index.css}">
+</head>
+<body>
+<header>
+    <div><h2>ACCEUIL</h2></div>
+</header>
+<br>
+
+<main>
+    <div class="general">
+        <div>
+            <div>
+                <a href="/professeur/">
+                    <button class="button">Acceuil Professeur</button>
+                </a>
+            </div>
+            <br>
+            <br>
+
+            <div>
+                <a href="/professeur/form">
+                    <button class="button">Ajouter un professeur</button>
+                </a>
+            </div>
+            <br>
+            <br>
+
+            <div>
+                <a href="/classe/">
+                    <button class="button">Acceuil classes</button>
+                </a>
+            </div>
+            <br>
+            <br>
+
+            <div>
+                <a href="/classe/form">
+                    <button class="button">Ajouter une classe</button>
+                </a>
+            </div>
+        </div>
+
+        <div id="book">
+            <img th:src="@{/images/book.jpg}" alt="livres">
+        </div>
+    </div>
+
+</main>
+</body>
+</html>

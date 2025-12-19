@@ -46,3 +46,10 @@ main {
     align-items: center;
     justify-content: space-around;
 }
+
+.acceuil {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -10,40 +10,47 @@
 <header>
     <div><h2>Formulaire professeur</h2>
 
-    <h3 th:if="${professeur.id == null}">Ajouter un nouveau Professeur</h3>
+        <h3 th:if="${professeur.id == null}">Ajouter un nouveau Professeur</h3>
         <h3 th:if="${professeur.id != null}">Modifier un Professeur</h3>
     </div>
 </header>
 
 <main>
-<form th:object="${professeur}"
-      th:action="${professeur.id == null ? '/professeur/ajouter-professeur' : '/professeur/' + professeur.id + '/modifier'}"
-      method="post">
+    <form th:object="${professeur}"
+          th:action="${professeur.id == null ? '/professeur/ajouter-professeur' : '/professeur/' + professeur.id + '/modifier'}"
+          method="post">
 
-    <div class="alignement"><label>Nom: </label>
-        <input class="inBorder" th:field="*{nom}" required/>
+        <div class="alignement"><label>Nom: </label>
+            <input class="inBorder" th:field="*{nom}" required/>
+            <br>
+            <label>Prenom: </label>
+            <input class="inBorder" th:field="*{prenom}" required/>
+            <br>
+            <label> Email: </label>
+            <input class="inBorder" th:field="*{email}" required/>
+        </div>
         <br>
-        <label>Prenom: </label>
-        <input class="inBorder" th:field="*{prenom}" required/>
-        <br>
-        <label> Email: </label>
-        <input class="inBorder" th:field="*{email}" required/>
+
+        <div class="valider">
+            <a th:href="@{/professeur/{id}/valider(id=${professeur.id})}">
+                <button class="button">Valider nouveau Professeur</button>
+            </a>
+        </div>
+    </form>
+    <br>
+
+    <div class="retour">
+        <a href="/professeur/">
+            <button class="button">Retour Acceuil Professeur</button>
+        </a>
     </div>
     <br>
 
-    <div class="valider">
-        <a th:href="@{/professeur/{id}/valider(id=${professeur.id})}">
-            <button class="button">Valider nouveau Professeur</button>
+    <div class="acceuil">
+        <a href="/acceuil/">
+            <button class="button">Acceuil</button>
         </a>
     </div>
-</form>
-<br>
-
-<div class="retour">
-    <a href="/professeur/">
-        <button class="button">Retour Acceuil Professeur</button>
-    </a>
-</div>
 
 </main>
 </body>
